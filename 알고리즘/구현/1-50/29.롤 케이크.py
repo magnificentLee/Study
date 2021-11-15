@@ -18,3 +18,29 @@ for i in range(1, n + 1):
             count_cake[i] += 1
 print(max_n)
 print(count_cake.index(max(count_cake)))
+"""
+l = int(input())
+n = int(input())
+
+cake = [0] * (l + 1)
+players = [0] * (n + 1)
+
+length_max = 0
+idx = 0
+
+for i in range(n):
+    p, k = map(int, input().split())
+    # 예상 승자
+    if length_max < k - p:
+        length_max = k - p
+        idx = i + 1
+    # 실제 승자
+    result = 0
+    for j in range(p, k + 1):
+        if not cake[j]:
+            cake[j] = 1
+            result += 1
+    players[i] = result
+print(idx)
+print(players.index(max(players)))
+"""
