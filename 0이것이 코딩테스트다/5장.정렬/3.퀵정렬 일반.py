@@ -1,3 +1,6 @@
+# pivot 값을 지정 (보통 시작값인 인덱스0)
+# 최선의 경우 nlogn 의 정렬중 가장 빠름
+# 최악의 경우 n^2 이 걸리지만 보통 정렬 or 역순으로 정렬 된 경우라 얼마 없음
 # 추가로 볼 필요 있음
 array = [5, 7, 9, 0, 3, 1, 6, 2, 4, 8]
 
@@ -10,7 +13,7 @@ def quick_sort(array, start, end):
     while left <= right:
         while left <= end and array[left] <= array[pivot]:  # 기준보다 작으면
             left += 1
-        while right > start and array[right] >= array[pivot]: # 기준보다 크면
+        while right > start and array[right] >= array[pivot]:  # 기준보다 크면
             right -= 1
         if left > right:  # 엇갈렸다면 작은 데이터와 기준값을 교체
             array[right], array[pivot] = array[pivot], array[right]
