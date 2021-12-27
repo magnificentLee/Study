@@ -11,17 +11,17 @@
 array = [input() for _ in range(36)]
 dy = [1, -1, 1, -1, 2, -2, 2, -2]  # y축 i[dy][dx]
 dx = [2, 2, -2, -2, 1, 1, -1, -1]  # x축
-if len(set(array)) == 36:
-    for i in range(35):
+if len(set(array)) == 36:  # 이동한 지점중 중복된 곳이 없을 경우
+    for i in range(35):  # 나이트의 이동거리 : 2 를 초과하는 것이 있을 경우
         if abs((ord(array[i][0]) - ord(array[i + 1][0])) * ((int(array[i][1])) - int(array[i + 1][1]))) != 2:
             print("Invalid")
             break
-    else:
-        for j in range(8):
+    else:  # i = 마지막일 때 처음으로 돌아올 수 있는지 체크
+        for j in range(8):  # 이동가능한 곳 모두 체크
             ny = int(array[i + 1][1]) + dy[j]
             nx = ord(array[i + 1][0]) + dx[j]
-            if 1 <= ny <= 6 and ord("A") <= nx <= ord("Z"):  # 인덱스 0,0 의 값은 정확히는 a1 이기 때문에
-                if chr(nx) == array[0][0] and ny == int(array[0][1]):
+            if 1 <= ny <= 6 and ord("A") <= nx <= ord("Z"):  # 인덱스 0,0 의 값은 a1 이기 때문에
+                if chr(nx) == array[0][0] and ny == int(array[0][1]):  # x축 값(변환후)과 y축 값이 시작과 동일하면
                     print("Valid")
                     break
         else:
