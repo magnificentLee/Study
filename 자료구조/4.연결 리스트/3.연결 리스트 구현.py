@@ -7,7 +7,7 @@ class Node:
 
 
 class LinkedList:
-    def __init__(self):
+    def __init__(self):  # 첫 시작시 작동
         self.head = None  # 첫 생성시 내부에는 노드가 없으므로
 
     def add(self, data):
