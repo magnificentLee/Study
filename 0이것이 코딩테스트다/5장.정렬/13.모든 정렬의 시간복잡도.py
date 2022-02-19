@@ -15,4 +15,6 @@
 병합 nlogn nlogn nlogn
 
 팀     n   nlogn nlogn
+
+계수 n + k n + k n + k (k = 정렬할 수들 중에 가장 큰 값, 매우 크다면 n + k = 무한 이 될 수도 있음)
 """
