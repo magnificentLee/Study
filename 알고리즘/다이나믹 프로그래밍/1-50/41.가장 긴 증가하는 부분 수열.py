@@ -7,7 +7,7 @@
 # 다음은 파이썬용 풀이
 n = int(input())
 array = list(map(int, input().split()))
-dp = [0] * n
+dp = [1] * n
 for i in range(n):
     for j in range(i):  # i까지의 수열을 확인
         if array[j] < array[i]:
