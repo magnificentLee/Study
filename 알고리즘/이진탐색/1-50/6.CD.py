@@ -11,6 +11,32 @@ while True:
         break
     array1 = [int(input()) for _ in range(n)]
     array2 = [int(input()) for _ in range(m)]
+    result = 0
+    i, j = 0, 0
+    while True:
+        try:
+            if array1[i] == array2[j]:
+                result += 1
+                i += 1
+                j += 1
+            elif array1[i] > array2[j]:
+                j += 1
+            else:
+                i += 1
+        except:
+            break
+    print(result)
+# pypy를 이용하는 경우
+"""
+from sys import stdin
+input = stdin.readline
+
+while True:
+    n, m = map(int, input().split())
+    if n == 0 and m == 0:
+        break
+    array1 = [int(input()) for _ in range(n)]
+    array2 = [int(input()) for _ in range(m)]
     # 인덱스로 진행
     result = 0
     for target in array2:
@@ -25,3 +51,4 @@ while True:
             elif array1[mid] > target:
                 end = mid - 1
     print(result)
+"""
