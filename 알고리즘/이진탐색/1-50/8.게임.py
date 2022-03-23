@@ -8,9 +8,10 @@ input = stdin.readline
 x, y = map(int, input().split())
 z = (100 * y) // x  # 부동소수점 오차 때문에 소수 연산후 100을 곱하는게 아닌 미리 100을 곱해서 계산함 (%이기 때문)
 start, end = 0, x
-result = x  # 기본적인 최소 횟수는 x,
+result = x  # 기본적인 최대 횟수는 x,
 # y = x라면 (100 * x) // x 에서 공통 인수 x를 소거해주면 100이 되기 때문
-# 따라서 겨로가 result와 끝값 end = x로 잡으면 됨
+# 따라서 결과 result와 끝값 end = x로 잡으면 됨
+# 만약 이진탐색중 result보다 더 작은 횟수, 100에 더 근접해지는 결과를 찾는다면 result를 최솟값으로 갱신해줌
 # 줄어들 수 없는 경우, 즉 계속 계산해봐야 100에 근접해지지만 수가 변하지 않는 경우(100을 곱했을 때 소숫점 단위에서만 움직이는 경우)
 if z >= 99:
     print(-1)
@@ -18,7 +19,7 @@ else:
     while start <= end:
         mid = (start + end) // 2
         k = (100 * (y + mid)) // (x + mid)
-        if k > z:
+        if k > z:  # z = target
             result = mid
             end = mid - 1
         else:
